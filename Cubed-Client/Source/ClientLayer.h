@@ -26,5 +26,16 @@ namespace Cubed
 
         Walnut::Client m_Client;
         std::string m_ServerAddress;
+        uint32_t m_PlayerID; // Not thread safe, but currently doesn't matter isn't used in other threads for now.
+
+        struct PlayerData
+        {
+            glm::vec2 Position;
+            glm::vec2 Velocity;
+        };
+
+        // Gonna swap this out to a concurrent, lock-free queue in the future
+        std::mutex m_PlayerDataMutex;        
+        std::map<uint32_t, PlayerData> m_PlayerData;
     };
 }
