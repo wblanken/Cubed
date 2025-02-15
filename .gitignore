@@ -32,3 +32,12 @@
 *.app
 
 .idea/
+
+/bin
+/bin-int
+Cubed-Client/logs
+Cubed-Server/logs
+
+*.sln
+*.vcxproj
+imgui.ini
